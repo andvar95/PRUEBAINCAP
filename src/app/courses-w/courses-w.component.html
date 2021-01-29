@@ -1,0 +1,47 @@
+<div class= "search font-1">
+    <div class="search_in">
+        <input type="search" placeholder="¿Sobre qué te gustaría Aprender?" 
+        [(ngModel)]= "filterName" name="filterName" >
+    </div>
+    <div class = "filters">
+        <select [(ngModel)]= "filterMod" name="filterMod" >
+            <option value="0" >Modalidad</option>
+            <option *ngFor= "let modality of modalities" >{{modality}}</option>
+        </select>
+        <select [(ngModel)]= "filterType" name = "filterType" >
+            <option value="0" >Curso</option>
+            <option *ngFor= "let typecourse of typecourses" >{{typecourse}}</option>
+        </select>
+    </div>
+</div>
+
+<div class ="Results font-2">
+
+    <div class= "Result" *ngFor= "let course of courses | name:filterName | mod:filterMod | typ:filterType">
+       
+        <div>
+            <img src='./assets/curso.png' width="120px" height="120px" class="imgc">
+        </div>
+        <div class="Descrip">
+            <h3>{{course.title}}</h3>
+            {{course.type}}<br>
+            {{course.Modality}}<br>
+            <span *ngIf = "course.Modality == 'Sincrona' else Async"> 
+              {{course.Schedule.Day1.split("-")[0]}}
+         
+               {{course.Schedule.Day1.split("-")[1]}}-{{course.Schedule.Day1.split("-")[3]}}
+                 {{course.Schedule.Day2.split("-")[0]}}
+               {{course.Schedule.Day2.split("-")[1]}}-{{course.Schedule.Day2.split("-")[3]}}
+            </span>
+            <ng-template #Async> No aplica horario</ng-template>
+            <br>
+            <img class ="cart_img" src="./assets/cart.png"  (click)="addCart(course)">
+        </div>
+
+        
+        
+    </div>
+
+
+</div>
+

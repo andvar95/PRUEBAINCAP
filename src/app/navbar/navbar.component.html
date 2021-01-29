@@ -1,0 +1,65 @@
+
+    <ul class="navigator font-1">
+        <div class="Options">  
+        <li><a><img src ="./assets/logo.png" width = 50 heigth = 50></a>
+            
+        </li>
+    
+        </div>
+    
+    
+        <!--li>
+        <a>Ministerios</a>
+        <ul>
+            <li><a>Alabanza</a></li>
+            <li><a>Danza</a></li>
+            <li><a>Empresarial</a></li>
+            <li><a>Ujieres</a></li>
+        </ul>
+        
+        </li-->
+     
+
+        <div class = "Options">
+        <li>
+            <a routerLink = "courses">Cursos</a> 
+        </li>
+    
+        <li>
+        <a>Carrito</a>
+            <ul>
+                <li *ngFor = " let course of Courses">
+                    <div class="CoursesInCart">
+                        <div class= 'DescriptionCart'>
+                            <h4>{{course.title}}</h4>
+                            {{course.type}}<br>
+                            {{course.Modality}}
+                            <br>
+                            <p  class="deleteButon"> Eliminar  </p>
+                        </div>
+                        
+                    </div>
+                </li>
+                <li><button routerLink = "buyCourses" >Comprar </button></li>
+            </ul>
+        </li>
+
+
+    
+        <li>
+        <a (click)="modalOpen()" *ngIf = "log == false else oklog">Iniciar Sesión/ Registrarse</a>
+        <ng-template #oklog><div style="display:flex"> <a>{{user['name']}}</a> <a (click)="logOut()" *ngIf="log == true"> <img src="./assets/exit.svg"></a> </div></ng-template>
+        
+        </li>
+        
+
+        
+
+    </div>
+
+
+</ul>
+
+<app-cart [CoursestoBuy]="Courses" *ngIf="buyVar" (onClose)="modalClose($event)"></app-cart>
+
+<router-outlet></router-outlet>

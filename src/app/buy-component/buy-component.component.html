@@ -1,0 +1,44 @@
+
+<div class="container font-2">
+    <div class= "content">
+    <ul >
+        <h2>Mi carrito de Cursos</h2>
+        <li *ngFor = "let course of Courses" class="items">
+            <h4>{{course.title}}</h4>
+            {{course.type}}<br>
+            {{course.Modality}}<br>
+            {{course.Precio}}<br>
+            <input (click) = "delete(course)" type="button" value="Delete">
+        </li>
+        <li>Total = $ {{total}}</li>
+  
+        
+    </ul>
+</div>
+    <div class="OtherOp font-2">
+        <!--button (click)="clean()">Vaciar Carrito</button-->
+        <div class= "payment">
+            <h2>Procedimiento de Pago</h2>
+            <br>
+            <select (change)="SelectPay()" [(ngModel)]= "payOpt">
+                <option value="0">Selecciona una opción</option>
+                <option  name = "payOpt" *ngFor = " let option of paymentOpt">{{option}}</option>
+            </select>
+            <br>
+            <form *ngIf="cards" class="cards">
+                Pago por Tarjeta
+                <input type="text" placeholder="Número de la tarjeta">
+                <input type="text" placeholder="Nombres y Apellidos">
+                <input type="text" placeholder="Fecha de expedición">
+                <input type="text" placeholder="Código de Seguridad">
+                <input type="text" placeholder="Documento">
+            </form>
+
+            
+        </div>
+        <div>
+       
+    </div>
+
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<input type="button" id = "close"  >
+<label for="close" id ="btn-cerrar" (click)="closeModal()">X</label>
+<div class="modal">
+    <div class= "content">
+        <div class="headerButtons"> 
+            <span (click)="login()">Iniciar Sesion</span>
+            <span  (click)="register()">Registrarse</span>
+    </div>
+    <form  #f="ngForm" (ngSubmit)="onSubmit(f)"  class="form" novalidate>
+  
+  <input name ="email" type = "email" placeholder="Ingrese su Correo electrónico" *ngIf ="reg" ngModel>
+    <input name ="name" type = "text" placeholder="Ingrese su Nombre" ngModel>
+    <input name ="pass" type = "password" placeholder="Ingrese su Contraseña"  autocomplete="on" ngModel>
+    <input  type = "submit" value="Inicar Sesión"*ngIf ="ses">
+    <input type = "submit" value="Registrate" *ngIf ="reg">
+</form>
+
+
+    </div>
+</div>
