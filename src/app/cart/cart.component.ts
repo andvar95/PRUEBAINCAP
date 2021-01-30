@@ -13,6 +13,7 @@ export class CartComponent implements OnInit {
   reg:boolean= false;
   ses:boolean= true;
   user:any = [];
+  msj:any =[];
 
   ngOnInit(): void {
 
@@ -39,15 +40,29 @@ export class CartComponent implements OnInit {
   }
 
   onSubmit(f: NgForm) {
+    this.msj = "";
     if (this.reg == true){
+      if(this.userservice.checknewUser(f.value)==1)
+      {
+        this.msj = "Usuario ya exista intente otro correo o apodo";
+      }
+      else if(this.userservice.checknewUser(f.value)==0){ 
     this.userservice.regUser(f.value);
     console.log("registrado" +f.value);
     this.login();
   }
+  }
   else if (this.ses == true){
-        if(this.userservice.logUser(f.value)==true){
+        if(this.userservice.logUser(f.value)==1){
       this.user = this.userservice.getcurrentUser();
           this.closeModal();
+    }
+
+    else if(this.userservice.logUser(f.value)==0){
+      this.msj = "Usuario No registrado";
+    }
+    else if(this.userservice.logUser(f.value)==2){
+      this.msj = "Contraseña Erronea";
     }
     
   

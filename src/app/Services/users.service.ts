@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class UsersService {
   Users:any [];
   currentUser:any;
-  ok_log:boolean = false;
+  ok_log:number = 0;
 
   constructor() {
     this.Users = [];
@@ -17,10 +17,25 @@ export class UsersService {
    }
 
    logUser(user:any){
-    this.ok_log = false;
+    this.ok_log = 0;
      this.Users.forEach((userdata:any)=>{
-        if (user.pass == userdata.pass && user.name == userdata.name){
-          this.ok_log = true;
+        if (user.name == userdata.name){
+          if (user.pass == userdata.pass ){
+          this.ok_log = 1;}
+          else{
+            this.ok_log = 2;
+          }
+        }
+     });
+     this.currentUser = user;
+     return this.ok_log
+   }
+
+   checknewUser(user:any){
+    this.ok_log = 0;
+     this.Users.forEach((userdata:any)=>{
+        if (user.email == userdata.email || user.name == userdata.name){
+          this.ok_log = 1;
         }
      });
      this.currentUser = user;
