@@ -23,6 +23,7 @@ export class CoursesWComponent implements OnInit {
   cross:any = 0;
   crossEna:boolean=true;
   user:any = ['-','-'];
+  msj:string='';
 
 
 
@@ -38,7 +39,8 @@ export class CoursesWComponent implements OnInit {
         "Day1":"Lunes-16-17-18",
         "Day2":"Jueves-17-18-19",
       },
-      "Precio":25000
+      "Precio":25000,
+      "msj":""
     },
     {
       "id": 2,
@@ -47,7 +49,10 @@ export class CoursesWComponent implements OnInit {
       "type": "Diplomado",
       "Modality":"Asincrona",
       "Schedule":"",
-      "Precio":50000
+      "Precio":50000,
+      "msj":""
+      
+  
     },
     {
       "id": 3,
@@ -59,7 +64,8 @@ export class CoursesWComponent implements OnInit {
         "Day1":"Martes-16-17-18",
         "Day2":"Jueves-8-9-10",
       },
-      "Precio":14000
+      "Precio":14000,
+      "msj":""
     },
     {
       "id": 4,
@@ -68,7 +74,8 @@ export class CoursesWComponent implements OnInit {
       "type": "Curso Corto",
       "Modality":"Asincrona",
       "Schedule":"",
-      "Precio":34000
+      "Precio":34000,
+      "msj":""
       
   
     },
@@ -82,7 +89,8 @@ export class CoursesWComponent implements OnInit {
         "Day1":"Lunes-9-10-11",
         "Day2":"Jueves-17-18-19",
       },
-      "Precio":15000
+      "Precio":15000,
+      "msj":""
 
     }
   ]; 
@@ -111,6 +119,7 @@ export class CoursesWComponent implements OnInit {
   }
 
   addCart(course:any){
+    this.msj = "";
     this.getUser()
       if(this.user != "-"){
         if(this.crossSchedule(course)==true)
@@ -122,11 +131,25 @@ export class CoursesWComponent implements OnInit {
       }
       
     else if (this.user == "-") {  
-      alert("Debo Iniciar sesión");
+      this.sleepMsj("Debo Iniciar sesión",course)
+      
     }
     
    
   }
+
+  /* Theses methods help to delay message*/
+
+  private async sleepMsj(msj:string,course:any){
+    course.msj = msj;
+    await this.delay(20000);
+    course.msj = "";
+  }
+
+  private delay(ms: number)
+{
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
   
  

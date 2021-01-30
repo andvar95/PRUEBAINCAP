@@ -14,8 +14,12 @@ export class BuyComponentComponent implements OnInit {
   user:any = [];
   payOpt:string = '0';
   paySel:string = ''; 
+  bankOpt:string = '0';
+  bankSel:string = ''; 
   cards:boolean = false;
+  pse:boolean = false;
   paymentOpt:any = ["Tarjeta Debito/Credito","PSE","Efecty"]
+  banksOpt:any = ["Bancolombia","AVvillas","Banco de Bogotá"]
 
 
 
@@ -26,6 +30,10 @@ export class BuyComponentComponent implements OnInit {
     this.user = this.userservice.getcurrentUser(); 
     if(this.user == undefined ||this.user == ''){
       this.user = ["-"];
+      this.cartservice.clean();
+      this.Courses = this.cartservice.get();
+      this.total = this.cartservice.totalPrice();
+    
     } 
  
   }
@@ -58,7 +66,16 @@ export class BuyComponentComponent implements OnInit {
     this.paySel = this.payOpt;
     if (this.paySel == this.paymentOpt[0]){
       this.cards=true;
+      this.pse=false;
     }
+    else if(this.paySel == this.paymentOpt[1]){
+      this.pse = true;
+      this.cards=false;
+    }
+  }
+
+  SelectBank(){
+    this.bankSel = this.bankOpt;
   }
 
 }

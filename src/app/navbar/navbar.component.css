@@ -13,7 +13,7 @@
    display:flex y space-between help to accommodate the menu options
 */
 .navigator{
-    background-color:rgb(112, 81, 170);
+    background-color:#0098E2;
    
      box-shadow: 0px 0px 3px 0px black;
      display:flex;
@@ -23,12 +23,17 @@
     
 }
 
+.phUsr{
+    border-radius: 50%;
+}
+
 
 
 
 .Options{
     display:flex;
     width:30%;
+    justify-content: space-evenly;
 }
 
 .navigator li a:hover{
@@ -47,7 +52,9 @@ ul{
    
      padding:10px 10px;
      display:block;
-
+    text-decoration:none;
+    color:white;
+   
     
 }
 
@@ -78,15 +85,5 @@ background-color:rgb(112, 81, 170);
     border-bottom: 1px solid rgba(20, 20, 20, 0.596);
 }
 
-.deleteButon{
-    margin:0;
-    padding:0px 0px;
-    display:static; 
-    cursor:pointer;
-}
-
-.deleteButon:hover{
-    color:blue;
-}
 
 

@@ -22,12 +22,12 @@
 
         <div class = "Options">
         <li>
-            <a routerLink = "courses">Cursos</a> 
+            <a routerLink = "courses"><img src="./assets/education.png" width="30px" height="30px">  </a> 
         </li>
     
         <li>
-        <a>Carrito</a>
-            <ul>
+        <a routerLink = "buyCourses" ><img  src="./assets/cartW.png" width="30px" height="30px"></a>
+            <!--ul>
                 <li *ngFor = " let course of Courses">
                     <div class="CoursesInCart">
                         <div class= 'DescriptionCart'>
@@ -41,14 +41,14 @@
                     </div>
                 </li>
                 <li><button routerLink = "buyCourses" >Comprar </button></li>
-            </ul>
+            </ul-->
         </li>
 
 
     
         <li>
-        <a (click)="modalOpen()" *ngIf = "log == false else oklog">Iniciar Sesión/ Registrarse</a>
-        <ng-template #oklog><div style="display:flex"> <a>{{user['name']}}</a> <a (click)="logOut()" *ngIf="log == true"> <img src="./assets/exit.svg"></a> </div></ng-template>
+        <a (click)="modalOpen()" *ngIf = "log == false else oklog"><img src = "./assets/user.png" width ="30px" height="30px"></a>
+        <ng-template #oklog><div style="display:flex"> <a><img class ="phUsr"src = "./assets/foto_2.jpg" width ="30px" height="30px"></a> <a (click)="logOut()" *ngIf="log == true"> <img src="./assets/exit.png"></a> </div></ng-template>
         
         </li>
         

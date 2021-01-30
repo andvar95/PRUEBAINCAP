@@ -15,16 +15,23 @@ export class CartComponent implements OnInit {
   user:any = [];
 
   ngOnInit(): void {
+
+    this.login();
    
   }
 
   login(){
     this.reg = false;
     this.ses= true;
+    document.getElementById('Ses').style.background = "deepSkyBlue";
+    document.getElementById('Reg').style.background ="lightGray";
+    
   }
   register(){
     this.reg = true;
     this.ses= false;
+    document.getElementById('Ses').style.background ="lightGray";
+    document.getElementById('Reg').style.background ="deepSkyBlue";
   }
 
   closeModal(){
@@ -35,12 +42,13 @@ export class CartComponent implements OnInit {
     if (this.reg == true){
     this.userservice.regUser(f.value);
     console.log("registrado" +f.value);
+    this.login();
   }
   else if (this.ses == true){
         if(this.userservice.logUser(f.value)==true){
       this.user = this.userservice.getcurrentUser();
-
-    };
+          this.closeModal();
+    }
     
   
     

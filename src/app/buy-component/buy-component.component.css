@@ -6,33 +6,72 @@
 }
 .container{
    
-    display:flex;
+    display:grid;
     margin:5% 0% 0% 0%;
     height: auto;
+
+  grid-column-gap:50px;
+
+    grid-template-columns:auto auto;
         
 }
 
-.content{
-    width:60%;
+@media screen and (max-width:500px){
+    .container{
+        grid-column-gap:10%;
 
-    
-    
+    grid-template-columns:auto;
+    }
+
+
+   
 }
-.content ul{
+
+.content{
+
+ margin-left:3%;
+
+}
+.content div{
+  
+    background:white;
+}
+.c1{
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(201, 185, 185, 0.589);
+}
+.content h2{
     justify-content: center;
     text-align: center;
+}
+.content ul{
+  
   margin: 0% 5% 0% 5%;
-    width:80%;
-    background-color:rgba(228, 220, 220, 0.589);
+    width:60%;
    
 }
 
 .items{
     border-bottom: 1px solid rgba(104, 88, 88, 0.589);
     background-color: 1px solid rgba(104, 88, 88, 0.589);
-    margin: 0% 10% 5% 0%;
+    margin: 0% 5% 5% 0%;
     padding:5%;
+    display:flex;
     
+}
+
+.itemsSel{
+    justify-content: center;
+    text-align: center;
+}
+
+.itemsSel input[type=submit]{
+    width:60%;
+    border:0;
+    background-color:red;
+    color:white;
+    font-size:15px;
+    padding:3%;
 }
 
 ul{
@@ -41,31 +80,58 @@ ul{
 
 
 .OtherOp{
-   
 justify-content: center;
 text-align: center;
-width:35%;
-
-
 }
 
+.OtherOp div {
+    margin:5%;
+}
+
+select{
+    height:30px;    
+}
+
+
+
+.payment{
+    background:white;
+    padding-bottom: 5%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(201, 185, 185, 0.589);
+}
 
 .cards{
   
     justify-content: center;
     text-align: center;
     padding:2% 5% 5% 11%; 
-    background:rgba(228, 220, 220, 0.589) ;
+    background:white;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(201, 185, 185, 0.589);
+}
+
+.cards > *{
+    margin-top:5%;
+    justify-content: center;
+    text-align: center;
 }
 
 .cards input[type=text]{
     border:0;
     border-bottom:1px solid rgb(139, 131, 131);
-    margin:5% 2% 5% 5%;
+    margin:5% 2% 5% 11%;
     padding:2%;
-    justify-content: center;
-    text-align: center;
     display:block;
     width:70%;
     
+}
+
+.cards button[type = submit]{
+    width:90%;
+    border:0;
+    background-color:deepskyblue;
+    color:white;
+    font-size:15px;
+    padding:1%;
 }

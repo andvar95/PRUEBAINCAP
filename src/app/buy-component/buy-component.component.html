@@ -1,19 +1,22 @@
 
 <div class="container font-2">
     <div class= "content">
-    <ul >
+        <div class="c1">        
         <h2>Mi carrito de Cursos</h2>
+        <ul >
         <li *ngFor = "let course of Courses" class="items">
-            <h4>{{course.title}}</h4>
-            {{course.type}}<br>
-            {{course.Modality}}<br>
-            {{course.Precio}}<br>
-            <input (click) = "delete(course)" type="button" value="Delete">
+            <img src = "./assets/curso.png"width="120px" height="120px" >
+            <div class="itemsSel">
+                <h4>{{course.title}}</h4>
+                {{course.type}}<br>
+                {{course.Modality}}<br>
+                {{course.Precio}}<br>
+                <input (click) = "delete(course)" type="submit" value="Eliminar">
+            </div>
         </li>
-        <li>Total = $ {{total}}</li>
-  
-        
+        <li>Total = $ {{total}}</li>  
     </ul>
+    </div>
 </div>
     <div class="OtherOp font-2">
         <!--button (click)="clean()">Vaciar Carrito</button-->
@@ -25,6 +28,8 @@
                 <option  name = "payOpt" *ngFor = " let option of paymentOpt">{{option}}</option>
             </select>
             <br>
+        </div>
+        <div>  
             <form *ngIf="cards" class="cards">
                 Pago por Tarjeta
                 <input type="text" placeholder="Número de la tarjeta">
@@ -32,10 +37,24 @@
                 <input type="text" placeholder="Fecha de expedición">
                 <input type="text" placeholder="Código de Seguridad">
                 <input type="text" placeholder="Documento">
+                <button type = "submit">Confirmar Pago</button>
+
             </form>
 
-            
+            <form *ngIf="pse" class="cards">
+                Pago por PSE<br>
+                <select (change)="SelectBank()" [(ngModel)]= "bankOpt" name = "selectBank">
+                    <option value="0">Selecciona una opción</option>
+                    <option  name = "bankOpt" *ngFor = " let bank of banksOpt">{{bank}}</option>
+                </select>
+                <button type = "submit">Confirmar Pago</button>
+            </form>
+          
         </div>
+
+
+            
+       
         <div>
        
     </div>
