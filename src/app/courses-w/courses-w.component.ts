@@ -107,7 +107,38 @@ console.log("entre")}
                   }}}
         });
   
-  });}
+  });
+
+}
+this.cross=0;
+this.hor1 = [];
+this.hor2 = [];
+if(this.cartservice.getMyCourses().length>0)//if cart is empty don't verify
+{
+Object.entries(this.cartservice.getMyCourses()).forEach(
+  ([keys,dict]:any) => {
+    Object.entries(dict.Schedule).forEach(([day,sche]:any)=>{
+      for(let courseSc in course.Schedule){
+        if((course.key != dict.key) && (course.Schedule[courseSc].split("-")[0] == sche.split("-")[0])){
+          this.hor1=course.Schedule[courseSc].split("-");
+          this.hor2=sche.split("-");              
+            for(let h1 of this.hor1){
+              for(let h2 of this.hor2){
+                if (h1 ==h2){
+                 this.cross++;
+                }}}
+            if(this.cross >=3){
+            
+              this.sleepMsj("Cruce de horarios con "+dict.title,course)
+                this.cross=0;
+                this.crossEna = false;
+                
+              }}}
+    });
+
+});
+
+}
   return this.crossEna;
 
   
