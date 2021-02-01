@@ -1,19 +1,18 @@
 <input type="button" id = "close"  >
 <label for="close" id ="btn-cerrar" (click)="closeModal()">X</label>
-<div class="modal font-2">
+<div class="modal font-2 ">
     <div class= "content">
         <div class="headerButtons"> 
-            <span id = "Ses" (click)="login()">Iniciar Sesion</span>
+            <span id = "Ses" (click)="login()">Conéctate</span>
             <span id = "Reg"  (click)="register()">Registrarse</span>
     </div>
     <div>{{msj}}</div>
-    <form  #f="ngForm" (ngSubmit)="onSubmit(f)"  class="form" novalidate>
-  
-  <input name ="email" type = "email" placeholder="Ingrese su Correo electrónico" *ngIf ="reg" ngModel>
-    <input name ="name" type = "text" placeholder="Ingrese su Apodo" ngModel>
-    <input name ="pass" type = "password" placeholder="Ingrese su Contraseña"  autocomplete="on" ngModel>
-    <input  type = "submit" value="Inicar Sesión"*ngIf ="ses">
-    <input type = "submit" value="Registrate" *ngIf ="reg">
+    <form  #f="ngForm" (ngSubmit)="onSubmit(f)"  class="form font-2 " novalidate>
+  <input name ="email" type = "email" placeholder="Correo electrónico" *ngIf ="reg" ngModel>
+    <input name ="name" type = "text" placeholder="Apodo" ngModel>
+    <input name ="pass" type = "password" placeholder="Contraseña"  autocomplete="on" ngModel>
+    <input  type = "submit" value="Inicar Sesión"*ngIf ="ses"   class ="font-2">
+    <input type = "submit" value="Registrate" *ngIf ="reg" class ="font-2">
 </form>
 
 

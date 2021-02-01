@@ -1,7 +1,7 @@
 import { Component,  OnInit } from '@angular/core';
 import { CartService } from '../Services/cart.service';
 import { UsersService} from '../Services/users.service';
-
+import {NgForm} from '@angular/forms';
 @Component({
   selector: 'app-buy-component',
   templateUrl: './buy-component.component.html',
@@ -78,4 +78,11 @@ export class BuyComponentComponent implements OnInit {
     this.bankSel = this.bankOpt;
   }
 
+  onSubmit(f: NgForm) {
+    console.log(f.value+ " "+this.Courses);
+  this.cartservice.setMyCourses(this.cartservice.get());
+  this.cartservice.clean()
+  this.Courses = this.cartservice.get()
+  this.total = this.cartservice.totalPrice();
+   }
 }

@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
   login(){
     this.reg = false;
     this.ses= true;
-    document.getElementById('Ses').style.background = "deepSkyBlue";
+    document.getElementById('Ses').style.background = "#0098E2";
     document.getElementById('Reg').style.background ="lightGray";
     
   }
@@ -32,7 +32,7 @@ export class CartComponent implements OnInit {
     this.reg = true;
     this.ses= false;
     document.getElementById('Ses').style.background ="lightGray";
-    document.getElementById('Reg').style.background ="deepSkyBlue";
+    document.getElementById('Reg').style.background ="#0098E2";
   }
 
   closeModal(){
@@ -42,6 +42,8 @@ export class CartComponent implements OnInit {
   onSubmit(f: NgForm) {
     this.msj = "";
     if (this.reg == true){
+      if(f.value.name == '' || f.value.pass == '' || f.value.email =='' ){this.msj = "Faltan Campos";}
+      else{
       if(this.userservice.checknewUser(f.value)==1)
       {
         this.msj = "Usuario ya exista intente otro correo o apodo";
@@ -50,10 +52,12 @@ export class CartComponent implements OnInit {
     this.userservice.regUser(f.value);
     console.log("registrado" +f.value);
     this.login();
-  }
+  }}
   }
   else if (this.ses == true){
-        if(this.userservice.logUser(f.value)==1){
+      if(f.value.name == '' || f.value.pass == '' || f.value.email =='' ){this.msj = "Faltan Campos";}
+      else {
+        if(this.userservice.logUser(f.value)==1 ){
       this.user = this.userservice.getcurrentUser();
           this.closeModal();
     }
@@ -64,6 +68,8 @@ export class CartComponent implements OnInit {
     else if(this.userservice.logUser(f.value)==2){
       this.msj = "Contraseña Erronea";
     }
+  }
+
     
   
     

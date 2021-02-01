@@ -12,12 +12,18 @@
 /* Static -> navbar will not move  if i scroll the page 
    display:flex y space-between help to accommodate the menu options
 */
+@media screen and (max-width:500px){
+    .navigator{
+        justify-content: center;
+     
+    }
+}
 .navigator{
     background-color:#0098E2;
    
      box-shadow: 0px 0px 3px 0px black;
      display:flex;
-     justify-content: space-around;
+    justify-content: space-around;
      align-items: center;
      width:auto;
     
@@ -27,13 +33,17 @@
     border-radius: 50%;
 }
 
-
-
-
 .Options{
     display:flex;
     width:30%;
-    justify-content: space-evenly;
+    justify-content: space-between;
+}
+
+.Logo{
+    border:1px solid black;
+
+    justify-content: center;
+    align-content: center;
 }
 
 .navigator li a:hover{

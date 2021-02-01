@@ -1,28 +1,17 @@
 
     <ul class="navigator font-1">
-        <div class="Options">  
-        <li><a><img src ="./assets/logo.png" width = 50 heigth = 50></a>
+     
+        <li><a routerLink = "/"><img src ="./assets/logo.png" width = "50px"heigth = "50px"></a>
             
         </li>
     
-        </div>
+      
     
-    
-        <!--li>
-        <a>Ministerios</a>
-        <ul>
-            <li><a>Alabanza</a></li>
-            <li><a>Danza</a></li>
-            <li><a>Empresarial</a></li>
-            <li><a>Ujieres</a></li>
-        </ul>
-        
-        </li-->
-     
 
-        <div class = "Options">
+
+
         <li>
-            <a routerLink = "courses"><img src="./assets/education.png" width="30px" height="30px">  </a> 
+            <a routerLink = "/"><img src="./assets/education.png" width="30px" height="30px">  </a> 
         </li>
     
         <li>
@@ -48,14 +37,14 @@
     
         <li>
         <a (click)="modalOpen()" *ngIf = "log == false else oklog"><img src = "./assets/user.png" width ="30px" height="30px"></a>
-        <ng-template #oklog><div style="display:flex"> <a><img class ="phUsr"src = "./assets/foto_2.jpg" width ="30px" height="30px"></a> <a (click)="logOut()" *ngIf="log == true"> <img src="./assets/exit.png"></a> </div></ng-template>
+        <ng-template #oklog><div style="display:flex"> <a routerLink ="profile"><img class ="phUsr"src = "./assets/foto_2.jpg" width ="25px" height="25px"></a> <a (click)="logOut()" *ngIf="log == true" routerLink = "/"> <img src="./assets/exit.png"></a> </div></ng-template>
         
         </li>
         
 
         
 
-    </div>
+
 
 
 </ul>
@@ -63,3 +52,5 @@
 <app-cart [CoursestoBuy]="Courses" *ngIf="buyVar" (onClose)="modalClose($event)"></app-cart>
 
 <router-outlet></router-outlet>
+
+

@@ -1,4 +1,11 @@
 *{
     margin:0;
-    background-color: gray;
+
+}
+
+.main_page{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    margin-top:5%;
 }

@@ -4,14 +4,21 @@
         [(ngModel)]= "filterName" name="filterName" >
     </div>
     <div class = "filters">
+        <div>
+        Sincronía
         <select [(ngModel)]= "filterMod" name="filterMod" >
-            <option value="0" >Modalidad</option>
+            <option value="0" >Ambas</option>
             <option *ngFor= "let modality of modalities" >{{modality}}</option>
         </select>
+    </div>
+    <div>
+       
+        Modalidad
         <select [(ngModel)]= "filterType" name = "filterType" >
-            <option value="0" >Curso</option>
+            <option value="0" >Ambas</option>
             <option *ngFor= "let typecourse of typecourses" >{{typecourse}}</option>
         </select>
+    </div>
     </div>
 </div>
 
@@ -23,7 +30,7 @@
             <img src='./assets/curso.png' width="120px" height="120px" class="imgc">
         </div>
         <div class="Descrip">
-            <h3>{{course.title}}</h3>
+            <a (click)="addCurrentCourse(course)"><h3 >{{course.title}}</h3></a>
             {{course.type}}<br>
             {{course.Modality}}<br>
             <span *ngIf = "course.Modality == 'Sincrona' else Async"> 
@@ -36,8 +43,8 @@
             <br>
             <img class ="cart_img" src="./assets/cart.png"  (click)="addCart(course)">
         </div>
-        <div >
-            {{course.msj}}
+        <div *ngIf = "course.msj!=''"  >
+           <p class="msj" > {{course.msj}} </p>
         </div>
    
 

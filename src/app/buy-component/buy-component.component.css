@@ -22,9 +22,6 @@
 
     grid-template-columns:auto;
     }
-
-
-   
 }
 
 .content{
@@ -37,7 +34,7 @@
     background:white;
 }
 .c1{
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(201, 185, 185, 0.589);
 }
 .content h2{
@@ -48,6 +45,8 @@
   
   margin: 0% 5% 0% 5%;
     width:60%;
+    justify-content:center;
+    text-align: center;
    
 }
 
@@ -58,21 +57,16 @@
     padding:5%;
     display:flex;
     
+    
 }
 
 .itemsSel{
     justify-content: center;
     text-align: center;
+  
+    margin-left:5%;
 }
 
-.itemsSel input[type=submit]{
-    width:60%;
-    border:0;
-    background-color:red;
-    color:white;
-    font-size:15px;
-    padding:3%;
-}
 
 ul{
     list-style: none;
@@ -97,7 +91,7 @@ select{
 .payment{
     background:white;
     padding-bottom: 5%;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(201, 185, 185, 0.589);
 }
 
@@ -107,7 +101,7 @@ select{
     text-align: center;
     padding:2% 5% 5% 11%; 
     background:white;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(201, 185, 185, 0.589);
 }
 
@@ -121,17 +115,22 @@ select{
     border:0;
     border-bottom:1px solid rgb(139, 131, 131);
     margin:5% 2% 5% 11%;
-    padding:2%;
+    padding:3%;
     display:block;
     width:70%;
     
 }
 
 .cards button[type = submit]{
-    width:90%;
+    width:50%;
     border:0;
-    background-color:deepskyblue;
+    background-color: rgb(140, 209, 166);
     color:white;
     font-size:15px;
-    padding:1%;
+    padding:3% 5%;
+    border-radius: 5px;
+}
+
+.main_page{
+    display:none;
 }

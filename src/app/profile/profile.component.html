@@ -1,0 +1,31 @@
+<div class="profileContainer">
+
+    <div class ="img">
+        <div>    <img src ="../../assets/foto_2.jpg" width="100%" height="100%" ></div>
+
+    <div class="font-2 userInfo"> 
+        {{user.name}} 
+         
+    </div>
+    </div>
+
+    <div class = "myCourses"> 
+        
+        <div class="content font-2">
+            <h2>Mis Cursos</h2>
+            <ul class="font-2"> 
+                <li *ngFor = "let course of Courses" class="items">
+            
+                    <div class="itemsSel">
+                        <h4>{{course.title}}</h4>
+                        {{course.type}}<br>
+                        {{course.Modality}}<br>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>

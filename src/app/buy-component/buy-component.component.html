@@ -10,8 +10,10 @@
                 <h4>{{course.title}}</h4>
                 {{course.type}}<br>
                 {{course.Modality}}<br>
-                {{course.Precio}}<br>
-                <input (click) = "delete(course)" type="submit" value="Eliminar">
+                $ {{course.Precio}}<br>
+                <a (click) = "delete(course)" type="submit" class="Eliminar">
+                    <img src="../../assets/del.png" width="30px" height="30px" >
+                </a>
             </div>
         </li>
         <li>Total = $ {{total}}</li>  
@@ -30,7 +32,7 @@
             <br>
         </div>
         <div>  
-            <form *ngIf="cards" class="cards">
+            <form *ngIf="cards" class="cards" #f="ngForm" (ngSubmit)="onSubmit(f)"  >
                 Pago por Tarjeta
                 <input type="text" placeholder="Número de la tarjeta">
                 <input type="text" placeholder="Nombres y Apellidos">
@@ -41,12 +43,13 @@
 
             </form>
 
-            <form *ngIf="pse" class="cards">
+            <form *ngIf="pse" class="cards" #f="ngForm" (ngSubmit)="onSubmit(f)" >
                 Pago por PSE<br>
                 <select (change)="SelectBank()" [(ngModel)]= "bankOpt" name = "selectBank">
                     <option value="0">Selecciona una opción</option>
                     <option  name = "bankOpt" *ngFor = " let bank of banksOpt">{{bank}}</option>
                 </select>
+                <br>
                 <button type = "submit">Confirmar Pago</button>
             </form>
           
