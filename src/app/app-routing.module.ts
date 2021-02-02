@@ -8,7 +8,7 @@ import { ProfileComponent} from './profile/profile.component';
 const routes: Routes = [
   {path:'',component:CoursesWComponent},
   {path:'buyCourses',component:BuyComponentComponent},
-  {path:'courses/mycourse',component:MyCourseComponent},
+  {path:'mycourse',component:MyCourseComponent},
   {path:'profile',component:ProfileComponent}
 ];
 

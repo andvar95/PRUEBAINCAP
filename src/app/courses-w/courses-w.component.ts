@@ -77,7 +77,7 @@ export class CoursesWComponent implements OnInit {
 
 addCurrentCourse(course:any){
 this.cartservice.setCurrentCourse(course);
-this.router.navigate(['/mycourse']);
+this.router.navigate(['mycourse']);
 console.log("entre")}
  
 
